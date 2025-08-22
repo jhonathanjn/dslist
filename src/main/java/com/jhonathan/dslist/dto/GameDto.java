@@ -1,48 +1,28 @@
-package com.jhonathan.dslist.entities;
+package com.jhonathan.dslist.dto;
 
-import jakarta.persistence.*;
+
+import com.jhonathan.dslist.entities.Game;
+import org.springframework.beans.BeanUtils;
 
 import java.util.Objects;
-@Entity
-@Table(name = "tb_game")
-public class Game {
 
-    // Dados do Game
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //gera ID dos games
+public class GameDto {
+
     private Long id;
     private String title;
-    @Column(name = "game_year")
     private Integer year;
     private String genre;
     private String platforms;
     private double score;
     private String imgUrl;
-
-    @Column(columnDefinition = "TEXT")
     private String shortDescription;
-
-    @Column(columnDefinition = "TEXT")
     private String longDescription;
 
-    // Construtores
+    public GameDto(){}
 
-    public Game(){
+    public GameDto(Game entity){
+        BeanUtils.copyProperties(entity, this); // Metodo para implementar as variaveis de forma automatica sem o uso de this para cada uma
     }
-
-    public Game(Long id, String title, Integer year, String genre, String platforms, double score, String imgUrl, String shortDescription, String longDescription) {
-        this.id = id;
-        this.title = title;
-        this.year = year;
-        this.genre = genre;
-        this.platforms = platforms;
-        this.score = score;
-        this.imgUrl = imgUrl;
-        this.shortDescription = shortDescription;
-        this.longDescription = longDescription;
-    }
-
-    // Getters e Setters
 
     public Long getId() {
         return id;
@@ -115,18 +95,4 @@ public class Game {
     public void setLongDescription(String longDescription) {
         this.longDescription = longDescription;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Game game = (Game) o;
-        return Objects.equals(id, game.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
-
-    // 1:03:00 do video
 }
