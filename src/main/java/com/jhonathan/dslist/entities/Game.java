@@ -6,8 +6,10 @@ import java.util.Objects;
 @Entity
 @Table(name = "tb_game")
 public class Game {
+
+    // Variaveis
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //gera ID dos games
     private Long id;
     private String title;
     @Column(name = "game_year")
@@ -23,6 +25,8 @@ public class Game {
     @Column(columnDefinition = "TEXT")
     private String longDescription;
 
+    // Construtores
+
     public Game(){
     }
 
@@ -37,6 +41,8 @@ public class Game {
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
     }
+
+    // Getters e Setters
 
     public Long getId() {
         return id;
