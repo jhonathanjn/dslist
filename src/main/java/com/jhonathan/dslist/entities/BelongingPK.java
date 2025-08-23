@@ -17,9 +17,9 @@ public class BelongingPK {
 
     public BelongingPK(){}
 
-    public BelongingPK(Game game, GameList gameList) {
+    public BelongingPK(Game game, GameList list) {
         this.game = game;
-        this.list = gameList;
+        this.list = list;
     }
 
     public Game getGame() {
@@ -34,8 +34,8 @@ public class BelongingPK {
         return list;
     }
 
-    public void setList(GameList gameList) {
-        this.list = gameList;
+    public void setList(GameList list) {
+        this.list = list;
     }
 
     @Override

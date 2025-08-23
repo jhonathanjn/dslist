@@ -17,15 +17,16 @@ public class Belonging {
     public Belonging() {
     }
 
-    public Belonging(Game game, GameList gameList, Integer position) {
+    public Belonging(Game game, GameList list, Integer position) {
         id.setGame(game);
-        id.setList(gameList);
+        id.setList(list);
         this.position = position;
     }
 
     public BelongingPK getId() {
         return id;
     }
+
 
     public void setId(BelongingPK id) {
         this.id = id;
